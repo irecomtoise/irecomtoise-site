@@ -78,6 +78,32 @@ nav a{
   text-shadow:0 3px 12px black;
 }
 
+.hero{
+    position:relative;
+}
+
+.nom-groupe{
+    position:absolute;
+    top:8%;
+    left:50%;
+    transform:translateX(-50%);
+
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(42px,6vw,82px);
+    font-weight:bold;
+    letter-spacing:8px;
+
+    color:rgba(255,255,255,0.16);
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.45),
+        0 0 18px rgba(255,255,255,.08);
+
+    white-space:nowrap;
+    pointer-events:none;
+    user-select:none;
+}
+  
 .bouton{
     background:#c6972d;
     color:white;
@@ -237,6 +263,9 @@ footer{
 </nav>
 
 <header class="hero" id="accueil">
+  <div class="nom-groupe">
+    ✦ IRE COMTOISE ✦
+</div>
   <div class="hero-content">
     <p>Des racines franc-comtoises aux couleurs celtiques</p>
     <a class="bouton" href="#album">Écouter Renaissance</a>
