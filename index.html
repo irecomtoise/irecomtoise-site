@@ -10,6 +10,7 @@
   --fond:#f6f1e6;
   --texte:#2f2419;
   --vert:#244b34;
+  --vert2:#183524;
   --or:#b28a32;
   --clair:#fffaf0;
 }
@@ -18,7 +19,7 @@
 
 body{
   margin:0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:Georgia,"Times New Roman",serif;
   background:var(--fond);
   color:var(--texte);
 }
@@ -27,12 +28,11 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(36,75,52,.92);
-  color:white;
   z-index:10;
+  background:rgba(24,53,36,.95);
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:35px;
   padding:14px;
 }
 
@@ -43,44 +43,53 @@ nav a{
 }
 
 .hero{
-  min-height:78vh;
- background-image:
-  linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-  url("./banniere.jpg");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-color: #244b34;
+  min-height:82vh;
+  background-image:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.45)),
+    url("./banniere.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
   color:white;
-  padding:120px 20px 80px;
+  padding:120px 25px 80px;
+}
+
+.hero-content{
+  max-width:900px;
+  animation:apparition 1.2s ease;
 }
 
 .hero h1{
-  font-size:clamp(48px,8vw,90px);
+  font-size:clamp(50px,8vw,96px);
   margin:0;
-  letter-spacing:5px;
-  text-shadow:0 4px 12px black;
+  letter-spacing:6px;
+  text-shadow:0 4px 18px black;
 }
 
 .hero p{
-  font-size:clamp(20px,3vw,30px);
-  margin:20px 0 35px;
-  text-shadow:0 3px 8px black;
+  font-size:clamp(21px,3vw,32px);
+  margin:25px 0 40px;
+  text-shadow:0 3px 12px black;
 }
 
 .bouton{
+  display:inline-block;
   background:var(--or);
   color:white;
-  padding:16px 34px;
+  padding:17px 38px;
   border-radius:40px;
   text-decoration:none;
   font-size:20px;
   font-weight:bold;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+.bouton:hover{
+  background:#c99b3b;
 }
 
 section{
@@ -91,45 +100,73 @@ section{
 
 h2{
   color:var(--or);
-  font-size:42px;
+  font-size:44px;
   margin-top:0;
 }
 
 p{
   font-size:20px;
-  line-height:1.7;
+  line-height:1.75;
+}
+
+.intro{
+  text-align:center;
+  max-width:850px;
+}
+
+.separateur{
+  width:90px;
+  height:4px;
+  background:var(--vert);
+  margin:30px auto;
+  border-radius:10px;
 }
 
 .album{
   display:grid;
-  grid-template-columns:350px 1fr;
-  gap:45px;
+  grid-template-columns:360px 1fr;
+  gap:50px;
   align-items:center;
 }
 
 .album img{
   width:100%;
-  border-radius:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,.35);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .titres{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:15px;
-  margin-top:35px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:45px;
 }
 
 .titre{
   background:var(--clair);
-  border-left:5px solid var(--vert);
-  padding:15px;
+  border-left:6px solid var(--vert);
+  padding:18px;
   font-size:18px;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  box-shadow:0 4px 14px rgba(0,0,0,.10);
+  border-radius:6px;
+}
+
+.titre:hover{
+  transform:translateY(-3px);
+  transition:.2s;
+}
+
+.note{
+  margin-top:45px;
+  background:#efe4cc;
+  padding:25px;
+  border-radius:10px;
+  font-style:italic;
 }
 
 .contact{
-  background:var(--vert);
+  max-width:none;
+  background:linear-gradient(135deg,var(--vert2),var(--vert));
   color:white;
   text-align:center;
 }
@@ -137,15 +174,31 @@ p{
 .contact h2{color:white}
 
 footer{
-  background:#1b1712;
+  background:#15110d;
   color:white;
   text-align:center;
   padding:25px;
 }
 
+@keyframes apparition{
+  from{opacity:0; transform:translateY(25px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
 @media(max-width:800px){
-  nav{gap:15px;font-size:14px}
-  .album{grid-template-columns:1fr}
+  nav{
+    gap:16px;
+    font-size:14px;
+    flex-wrap:wrap;
+  }
+
+  .album{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:60px 22px;
+  }
 }
 </style>
 </head>
@@ -159,13 +212,16 @@ footer{
 </nav>
 
 <header class="hero" id="accueil">
-  <h1>IRE COMTOISE</h1>
-  <p>Des racines franc-comtoises aux couleurs celtiques</p>
-  <a class="bouton" href="#album">Écouter Renaissance</a>
+  <div class="hero-content">
+    <h1>IRE COMTOISE</h1>
+    <p>Des racines franc-comtoises aux couleurs celtiques</p>
+    <a class="bouton" href="#album">Écouter Renaissance</a>
+  </div>
 </header>
 
-<section>
+<section class="intro">
   <h2>Bienvenue</h2>
+  <div class="separateur"></div>
   <p>
     Ire Comtoise est un projet musical inspiré par les paysages,
     les traditions et les légendes de Franche-Comté.
@@ -192,10 +248,11 @@ footer{
         Neuf titres pour découvrir un univers où se croisent traditions,
         légendes, personnages et paysages franc-comtois.
       </p>
+      <a class="bouton" href="#titres">Voir les titres</a>
     </div>
   </div>
 
-  <div class="titres">
+  <div class="titres" id="titres">
     <div class="titre">01 – Sans soucis</div>
     <div class="titre">02 – Le Comté</div>
     <div class="titre">03 – Trois jeunes filles</div>
@@ -205,6 +262,11 @@ footer{
     <div class="titre">07 – Fille d’un prince</div>
     <div class="titre">08 – Déboires amoureux</div>
     <div class="titre">09 – Légende du buveur d’eau</div>
+  </div>
+
+  <div class="note">
+    « Chaque région possède ses paysages, ses traditions et ses mélodies.
+    Ire Comtoise cherche à les faire résonner autrement. »
   </div>
 </section>
 
