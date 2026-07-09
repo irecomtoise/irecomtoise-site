@@ -198,6 +198,18 @@ footer{
   to{opacity:1; transform:translateY(0)}
 }
 
+   .fleche{
+    font-size:42px;
+    color:white;
+    margin-top:35px;
+    animation:rebond 1.5s infinite;
+}
+
+@keyframes rebond{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+}
+  
 @media(max-width:800px){
   nav{
     gap:16px;
@@ -277,18 +289,7 @@ footer{
   </div>
 
 <div class="fleche">
-  .fleche{
-    font-size:42px;
-    color:white;
-    margin-top:35px;
-    animation:rebond 1.5s infinite;
-}
-
-@keyframes rebond{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(10px);}
-}
-</div>
+ </div>
   
   <div class="note">
     « Chaque région possède ses paysages, ses traditions et ses mélodies.
